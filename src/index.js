@@ -58,7 +58,8 @@ export default class ReactTurntable extends PureComponent {
     onStart: PropTypes.func,
     fontVertical: PropTypes.bool,
     fontStyle: PropTypes.object,
-    hiddenButton: PropTypes.bool
+    hiddenButton: PropTypes.bool,
+    prize: PropTypes.number.isRequired
   }
   render() {
     const {
@@ -114,14 +115,7 @@ export default class ReactTurntable extends PureComponent {
     this.animateId = requestAnimationFrame(this.rotateTurntable)
   }
   getSelectedPrize = () => {
-    let startAngle = (this.startRotate * 180) / Math.PI,
-      awardAngle = (this.awardRotate * 180) / Math.PI,
-      pointerAngle = 90,
-      overAngle = (startAngle + pointerAngle) % 360,
-      restAngle = 360 - overAngle,
-      index = Math.floor(restAngle / awardAngle)
-
-    return this.prizes[index]
+    return this.prizes[prize];
   }
   drawTurntable() {
     const ctx = this.ctx

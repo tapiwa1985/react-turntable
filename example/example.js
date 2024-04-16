@@ -16,6 +16,7 @@ const prizes = Array(8)
 
 const options = {
   prizes,
+  prize: Math.random() * (8 - 0) + 0,
   width: 500,
   height: 500,
   primaryColor: '#83AF9B',
